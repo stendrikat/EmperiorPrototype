@@ -1,0 +1,34 @@
+package test;
+
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
+
+public class AllTests {
+
+	public static Test suite() {
+		TestSuite suite = new TestSuite(AllTests.class.getName());
+		//$JUnit-BEGIN$
+		suite.addTestSuite(AnualReportTest.class);
+		suite.addTestSuite(SoccerClubTest.class);
+		suite.addTestSuite(AddressTest.class);
+		suite.addTestSuite(DistinctRelationTest.class);
+		suite.addTestSuite(SubscriptionTest.class);
+		suite.addTestSuite(DateTest.class);
+		suite.addTestSuite(TeamDescriptionTest.class); 
+		suite.addTestSuite(IdentifyableSetTest.class);
+		suite.addTestSuite(GroupTest.class);
+		suite.addTestSuite(SportsClubTest.class);
+		suite.addTestSuite(PersonRelationTest.class);
+		suite.addTestSuite(PersonTest.class);
+		suite.addTestSuite(FourTest.class);
+		suite.addTestSuite(SeasonTest.class);
+		suite.addTestSuite(ClubReportTest.class);
+		suite.addTestSuite(ClubTest.class);
+		suite.addTestSuite(TupleSetTest.class);
+		suite.addTestSuite(OrganizationTest.class);
+		//$JUnit-END$
+		return suite;
+	}
+
+}

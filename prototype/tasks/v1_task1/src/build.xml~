@@ -1,0 +1,41 @@
+<project>
+  <path id="classpath.test">
+    <pathelement location="../../junit.jar" />
+    <pathelement location="../bin" />
+  </path>
+  <target name="clean">
+    <delete dir="../bin"/>
+    <mkdir dir="../bin"/>
+    <mkdir dir="../bin/task"/>
+    <mkdir dir="../bin/test"/>
+  </target>
+
+  <target name="compile">
+    <javac source="1.7" srcdir="./task" destdir="../bin" encoding="ISO-8859-1" includeantruntime="false"> <classpath refid="classpath.test"/> 
+	<compilerarg value="-Xlint:unchecked"/>
+	<compilerarg value="-Xlint:rawtypes"/>
+	<compilerarg value="-Werror"/>
+    </javac>
+    <javac source="1.7" srcdir="./test" destdir="../bin" encoding="ISO-8859-1" includeantruntime="false"> <classpath refid="classpath.test"/> 
+	<compilerarg value="-Xlint:unchecked"/>
+	<compilerarg value="-Xlint:rawtypes"/>
+	<compilerarg value="-Werror"/>
+    </javac>
+  </target>
+
+  <target name="test">
+    <junit showoutput="true" outputtoformatters="false" failureproperty="test.failed">
+      <classpath refid="classpath.test" />
+      <test name="test.AllTests" />
+    </junit>
+    <fail if="test.failed" message="A test failed"/>
+  </target>
+
+
+  <target name="show">
+    <java fork="yes" classname="junit.swingui.TestRunner">
+      <classpath refid="classpath.test" />
+      <arg value="test.AllTests"/>
+    </java>
+  </target>
+</project>
